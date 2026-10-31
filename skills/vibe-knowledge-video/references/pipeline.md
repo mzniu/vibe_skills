@@ -91,9 +91,9 @@ ffmpeg -y -framerate 30 -i frames/%05d.png -i audio/soundtrack_final.wav \
 
 - **SFX-only**: impacts, whooshes, ticks, chimes; no pad/melody when a BGM will be added.
 - **Two-pass loudnorm**: measure first, then normalize with `measured_I/TP/LRA/thresh/offset`, add `volume=-1.2dB`, `alimiter=limit=0.82`.
-- **BGM mix**: BGM ~0.95, SFX ~0.55, `amix normalize=0`; trim/loop to duration; fade 1.4s in/out. See `references/bgm.md`; the same licensed track was used in GEO and PROMPT.
+- **BGM mix**: copy `assets/bgm.mp3` from this skill to `audio/bgm-source.mp3`. Mix BGM ~0.95, SFX ~0.55, `amix normalize=0`; trim/loop to duration; fade 1.4s in/out. See `references/bgm.md`.
 - **AAC 320k**; verify MP4 true peak ≤ -1 dBFS. 192k may overshoot +2.6 dB on impacts. For the BGM mix, use `volume=-1.5dB` + `alimiter=limit=0.80`; the prompt video landed at -1.1 dBFS.
-- **Copyright**: use only user-provided licensed audio; do not download commercial tracks or bundle them into the Skill.
+- **Copyright**: the default bed is the bundled `assets/bgm.mp3`. Do not download a replacement track. A file the user explicitly supplies overrides it.
 
 ## 7. QA
 

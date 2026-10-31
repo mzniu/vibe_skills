@@ -22,7 +22,7 @@ skills/vibe-knowledge-video/
   templates/      storyboard.json
 ```
 
-本仓库不包含背景音乐。技能只说明如何混入用户自己提供、且已获授权的音轨。
+默认背景音乐在 `skills/vibe-knowledge-video/assets/bgm.mp3`，是作者自己改过的曲子。技能会把它复制到视频项目的 `audio/bgm-source.mp3` 再混音。用户如果另外指定了音轨，用用户指定的那一份。
 
 ## 让 Agent 安装
 
@@ -40,7 +40,7 @@ skills/vibe-knowledge-video/
    - 如果存在 %USERPROFILE%\NiuClaude（NiuClaude 桌面版），再安装一份到 %USERPROFILE%\NiuClaude\.claude\skills\vibe-knowledge-video。NiuClaude 读的是自己的数据目录，不会去读 Windows 用户主目录下的 .claude\skills。
    - 如果设置了环境变量 CLAUDE_CONFIG_DIR，并且 $CLAUDE_CONFIG_DIR/.claude/skills 与上面两处不同，也安装一份到那里。
 3. 安装结束后，每一处都必须存在文件 vibe-knowledge-video/SKILL.md，且文件开头的 name 是 vibe-knowledge-video。
-4. 不要下载或写入任何音乐文件。
+4. 必须带上 `assets/bgm.mp3`。不要另外下载热门曲目来替换它。
 5. 完成后告诉我每个安装路径。提醒我新开一轮对话后，用 /vibe-knowledge-video 调用。
 ````
 
@@ -92,4 +92,4 @@ cp -R "$src" "$dest"
 - Node.js
 - 已加入 PATH 的 ffmpeg
 - Puppeteer 能启动的 Chromium（在具体视频项目里安装，不在这个仓库里）
-- 用户提供的已授权背景音乐。不要从网上下载热门曲目来代替
+- 技能自带的 `assets/bgm.mp3`。不要从网上下载热门曲目来代替；用户另外指定的音轨可以覆盖它

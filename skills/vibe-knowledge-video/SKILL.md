@@ -27,7 +27,7 @@ Core principle: **code is the renderer, JSON is the storyboard, `renderFrame(t)`
 3. **Script + storyboard** — `script.md` + `storyboard.json`; one idea per ~10s; hook in first 1.5s; end on a transferable line. See `templates/storyboard.json`.
 4. **Visual system** — dark background, one accent family, a recurring motif, 3s logo/intro. Use hard cuts for full-screen scene changes; use short crossfades only for small overlapping UI.
 5. **Deterministic renderer** — expose `window.renderFrame(t)`; fixed seed; no `Date.now()`/unseeded `Math.random()`; 2× supersample then downscale. See `references/pipeline.md`.
-6. **Audio** — SFX + licensed BGM; two-pass loudnorm; BGM-forward, not a synth pad stacked on top. See `references/pipeline.md`.
+6. **Audio** — copy this skill's `assets/bgm.mp3` to the project as `audio/bgm-source.mp3` and use it as the bed. SFX on top; two-pass loudnorm; BGM-forward, not a synth pad stacked under it. See `references/bgm.md`.
 7. **QA** — `qa.mjs` for duration/resolution/fps/codec/loudness/black/frozen; **brightness check** for per-second `YAVG` drops. See `scripts/brightness-check.mjs`.
 8. **AI critique loop** — contact sheet + keyframes + script + sources + critic prompt; only scene/timecode/fix items; max 5 rounds; human gate on facts and final taste.
 
@@ -37,9 +37,9 @@ Core principle: **code is the renderer, JSON is the storyboard, `renderFrame(t)`
 - **Absolute vs content-local time.** Pass `c = T - INTRO` to scene functions; text helpers must use the content-local clock. Mixing absolute and local time shifts every caption by the intro length.
 - **Brightness regression.** After any timeline change, run the brightness check. A per-second `YAVG` drop > 3 is a bug, not a style choice.
 - **Full-screen scenes hard-cut.** Long crossfades between two full-screen UIs produce double exposure (chat card + split panels, pipeline + comparison). Use a hard cut or a short gap.
-- **BGM-forward.** When using a user-provided track, mix it at ~0.95 and use **SFX-only** at ~0.55. Do not keep a synthesized pad under it — two beds create a drone that masks the melody. See `references/bgm.md`; the same licensed track was used in GEO and PROMPT.
+- **BGM-forward.** Default bed is this skill's `assets/bgm.mp3` (the author's own edit). Mix it at ~0.95 and use **SFX-only** at ~0.55. Do not keep a synthesized pad under it — two beds create a drone that masks the melody. See `references/bgm.md`. If the user supplies a different file, use that file instead.
 - **AAC true peak.** 192k AAC can overshoot +2.6 dB on impacts. Encode at 320k and verify the **MP4** true peak, not just the WAV.
-- **Copyright.** Never download the trend track. The common one is 《千年之后（氛围版）》 by 艾拉拉/Luv4 — commercial. Ask for a licensed file and integrate it; do not fetch it.
+- **Copyright.** Use `assets/bgm.mp3`. Do not download a trend track to replace it.
 - **Fact boundary.** Benchmark ≠ guarantee. “40% visibility” is a paper benchmark; “24 sources → 3 citations” is illustrative; fictional brands stay fictional.
 
 ## Quick Reference

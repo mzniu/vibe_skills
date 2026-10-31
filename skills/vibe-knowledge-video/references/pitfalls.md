@@ -68,7 +68,7 @@ Long `render.mjs` runs in a background shell may be killed when the session exit
 
 ## 10. Copyright and factual overreach
 
-- The trend BGM 《千年之后（氛围版）》 (艾拉拉/Luv4) is commercial. Do not download it; require a licensed file.
+- Do not download a trend track to replace `assets/bgm.mp3`. Copy that bundled file to `audio/bgm-source.mp3`.
 - “GEO boosts visibility by up to 40%” is a benchmark result, not a guarantee. Do not put it on screen without that caveat.
 - “24 sources → 3 citations” is illustrative; label it or keep it as a diagram, not a measured claim.
 - Fictional brands (A/B/C) must stay fictional.

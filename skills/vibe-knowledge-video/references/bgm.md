@@ -1,16 +1,23 @@
-# BGM Workflow (user-provided licensed track)
+# BGM Workflow
 
-The track used in this project is **《千年之后（氛围版）》by 艾拉拉/Luv4** — a commercial track. Do **not** download or redistribute it. The user supplies `audio/bgm-source.mp3` and confirms usage rights. The Skill documents the mixing workflow only; it does not bundle the audio.
+The default bed ships with this skill at `assets/bgm.mp3`. It is the author's own edit, not a downloaded trend track. Copy it into the video project before mixing:
+
+```powershell
+New-Item -ItemType Directory -Force -Path audio | Out-Null
+Copy-Item -Force "<this-skill-dir>\assets\bgm.mp3" audio\bgm-source.mp3
+```
+
+`<this-skill-dir>` is the directory that contains this file's parent `references/` folder and `SKILL.md`. If the user points at a different audio file, use that file as `audio/bgm-source.mp3` instead.
 
 ## Policy
 
-- Use the user's BGM as the **music bed**; do not stack a synthesized pad/melody under it.
+- Use `audio/bgm-source.mp3` as the **music bed**; do not stack a synthesized pad/melody under it.
 - Generate an **SFX-only** track: `node audio.mjs --sfx-only` → `audio/sfx.wav`.
 - Mix BGM **0.95** + SFX **0.55** with `amix normalize=0`.
 - Trim/loop BGM to the video duration; fade 1.4s in/out.
 - Two-pass loudnorm → -14 LUFS; then `volume=-1.5dB`, `alimiter=limit=0.80`.
 - Encode AAC **320k**; verify the **MP4** true peak ≤ -1 dBFS.
-- The same track has been used in both the GEO 38s and PROMPT 38s videos.
+- This same bundled bed was used in both the GEO 38s and PROMPT 38s videos.
 
 ## Commands
 
