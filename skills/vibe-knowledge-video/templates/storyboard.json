@@ -1,0 +1,94 @@
+{
+  "title": "TOPIC · 38s Vibe knowledge short",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "intro": 3,
+    "duration": 38,
+    "supersample": 2,
+    "platform": "Douyin"
+  },
+  "pacing": {
+    "hook_seconds": 3,
+    "body_seconds": 35,
+    "target_avg_shot_seconds": 4.5,
+    "transitions": "hook -> chat (light wipe); chat -> split (short crossfade); split -> pipeline (hard cut); pipeline -> compare (hard cut); compare -> takeaway (fade)"
+  },
+  "scenes": [
+    {
+      "id": "S00_INTRO",
+      "start": 0.0,
+      "end": 3.0,
+      "copy": ["THE QUESTION", "TOPIC", "one-line definition"],
+      "visual": "cold-open question -> source cards swirl into an AI core -> logo",
+      "effect": "impact, riser, shockwave, RGB-glitch title, light wipe",
+      "audio": "hit + riser + logo chime"
+    },
+    {
+      "id": "S01_CONTEXT",
+      "start": 3.0,
+      "end": 9.5,
+      "copy": ["relatable question", "answer with 2-3 concrete points", "the asymmetry/insight"],
+      "visual": "chat card or object close-up; typewriter; chips",
+      "effect": "slow typing, cursor, glass card",
+      "audio": "typing ticks, low pulse"
+    },
+    {
+      "id": "S02_CONTRAST",
+      "start": 9.5,
+      "end": 16.0,
+      "copy": ["old way", "new way", "what changed"],
+      "visual": "left/right split; bottom comparison strip",
+      "effect": "staggered rows, divider, chips",
+      "audio": "whoosh, light pulse"
+    },
+    {
+      "id": "S03_MECHANISM",
+      "start": 16.0,
+      "end": 27.0,
+      "copy": ["step 1 -> step 2 -> step 3", "definition", "3 concrete criteria"],
+      "visual": "sources flow into a core; one highlighted source gets cited; answer card",
+      "effect": "document flow, core rings, scan line, citation impact, counter",
+      "audio": "data noise, riser, citation impact, chime"
+    },
+    {
+      "id": "S04_TABLE",
+      "start": 27.0,
+      "end": 33.5,
+      "copy": ["A vs B", "goal / entry / metric"],
+      "visual": "two panels + 3-row comparison table",
+      "effect": "hard cut, highlighted rows",
+      "audio": "whoosh, low pulse"
+    },
+    {
+      "id": "S05_TAKEAWAY",
+      "start": 33.5,
+      "end": 38.0,
+      "copy": ["what it is not", "what to look for", "one-line transferable takeaway"],
+      "visual": "dark negative space; line-by-line text reveal",
+      "effect": "per-line fade, gold title, grain, end fade",
+      "audio": "closing chime, low tail"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "every number/claim on screen",
+      "status": "supported",
+      "source": "sources.json#id",
+      "on_screen": true
+    },
+    {
+      "claim": "illustrative numbers",
+      "status": "illustrative",
+      "source": "note",
+      "on_screen": true
+    },
+    {
+      "claim": "fictional examples",
+      "status": "fictional",
+      "source": "note",
+      "on_screen": true
+    }
+  ]
+}
